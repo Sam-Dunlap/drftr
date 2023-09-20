@@ -18,7 +18,7 @@ The general workflow of the structures in this library is intended as such:
 
 -   1. An end user adds your bot to their Discord server, and calls a command such as /configure or /setup. This command should execute the DraftGuild::new associated function, and the returned DraftGuild should be stored in a collection within your bot.
 
--   2. The user calls a command to create a new League -- a specific draft. This should execute the League::new associated function, then add that League to the DraftGuild the command originated in with the DraftGuild::add*league method. This does \_not* activate the League -- in my experience, it is generally preferred to separate creating and starting the League, so that a draft organizer can do the necessary configuration first, then start the league when all players are ready.
+-   2. The user calls a command to create a new League -- a specific draft. This should execute the League::new associated function, then add that League to the DraftGuild the command originated in with the DraftGuild::add_league method. This does _not_ activate the League -- in my experience, it is generally preferred to separate creating and starting the League, so that a draft organizer can do the necessary configuration first, then start the league when all players are ready.
 
 -   3. The user calls a command to _begin_ the League. This should execute the League::activate method, then send a message to the output channel either specified in the League, or the one chosen as the default output channel for the DraftGuild. This message should alert the first player that it is their turn to pick in the draft.
 
